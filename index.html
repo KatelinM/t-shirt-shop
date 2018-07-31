@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Магазин</title>
+	<link rel="stylesheet" href="style/main.css">	
+</head>
+<body>
+	<p>Магазин</p>
+	<div  class="grid">
+		<div data-price="25" data-label="Real" onclick="cartSum(this)" class="product"><img src="images/dpg156.jpg"></div>
+		<div data-price="75" data-label="Russia" onclick="cartSum(this)" class="product"><img src="images/dpg163.jpg"></div>
+		<div data-price="95" data-label="Barcelona-Home" onclick="cartSum(this)" class="product"><img src="images/dpg199.jpg"></div>
+		<div data-price="35" data-label="Fiorentia" onclick="cartSum(this)" class="product"><img src="images/dpg222.jpg"></div>
+		<div data-price="105" data-label="Greek" onclick="cartSum(this)" class="product"><img src="images/dpg320.jpg"></div>
+		<div data-price="200" data-label="Barcelona" onclick="cartSum(this)" class="product"><img src="images/dpg600.jpg"></div>
+	</div>	
+	<div class="cart">
+		<p>Корзина</p>
+		<p class="label">Мои товары:</p>
+		<p>Всего: <span>0</span> $</p>
+	</div>
+	<script>
+		var cart=document.querySelector('.cart p span');//изменяем содержимое элемента		                        
+		var label=document.querySelector('.cart p:nth-child(2)');//изменяем содержимое элемента
+		
+		function cartSum(element){	               //функция обратного вызова onclick
+			var delta=Number(element.dataset.price);//приращение суммы
+			cart.innerHTML=Number(cart.innerHTML)+delta;
+			 
+			label.innerHTML=label.innerHTML+" "+element.dataset.label+"<br>";				
+		}
+
+	</script>
+	
+</body>
+
+</html>
